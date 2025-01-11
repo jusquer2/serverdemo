@@ -3,9 +3,7 @@ const axios = require('axios');
 const app = express();
 
 app.get('/', async(req,res)=>{
-    const ip=
-    req.headers['x-forwarded-for'] ||
-    req.connection.remoteAddress;
+    const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || '').split(',')[0];
     try{
         const response = await axios.get(`http://ip-api.com/json/${ip}`);
         const data = response.data
