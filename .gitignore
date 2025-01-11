@@ -1,0 +1,75 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment variable files
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+.cache/
+.tmp/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.lock-wscript
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.stackdump
+*.crash
+
+# Coverage directory
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Test output
+.nyc_output/
+*.lcov
+
+# Debugging
+debug.log*
+error.log*
+
+# Package manager files
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Compiled files
+*.tsbuildinfo
+*.d.ts
+
+# Optional npm cache directory
+.npm/
+.eslintcache
+
+# Local env files
+*.local
