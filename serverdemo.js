@@ -9,11 +9,8 @@ app.get('/', async(req,res)=>{
         const response = await axios.get(`http://ip-api.com/json/${ip}`);
         const data = response.data
         const info = {ip:ip,
-            city:data.city,
-            region:data.region,
-            country:data.country,
-            isp:data.isp,
-            userAgent:req.headers['user-agent']
+            userAgent:req.headers['user-agent'],
+            ...data
         };
         console.log(info)
         //res.send(`<h1>Informacion recolectada</h1><pre>${JSON.stringify(info,null,2)}</pre>`)
