@@ -15,7 +15,9 @@ app.get('/', async(req,res)=>{
             userAgent:req.headers['user-agent']
         };
         console.log(info)
-        res.send(`<h1>Informacion recolectada</h1><pre>${JSON.stringify(info,null,2)}</pre>`)
+        //res.send(`<h1>Informacion recolectada</h1><pre>${JSON.stringify(info,null,2)}</pre>`)
+        const filePath = path.join(__dirname, 'index.html'); // Ruta completa al archivo
+        res.sendFile(filePath); // Envía el archivo HTML
     }catch(error){
         console.error(error)
         res.status(500).send('Error en el servidor')
