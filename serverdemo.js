@@ -21,6 +21,14 @@ app.get('/', async(req,res)=>{
         res.status(500).send('Error en el servidor')
     }
 });
+app.post('/json', (req, res) => {
+    const receivedJson = req.body;
+    console.log('JSON recibido:', receivedJson);
+
+    // Respuesta al cliente
+    res.status(200).json({ message: 'JSON recibido y pintado en consola' });
+});
+
  const PORT= 3000;
  app.listen(PORT, ()=>{
     console.log(`Servidor corriendo en http://localhost:${PORT}`)
