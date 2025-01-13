@@ -3,6 +3,8 @@ const axios = require('axios');
 const app = express();
 const path = require('path');
 
+app.use(express.json());
+
 app.get('/', async(req,res)=>{
     const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || '').split(',')[0];
     try{
