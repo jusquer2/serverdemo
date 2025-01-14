@@ -285,12 +285,30 @@
     <div class="content-wrapper">
         <!-- Centered Div -->
         <div class="centered-div">
-            <h1>Transacción declinada:</h1>
-            <p style="color: #23527c; padding-top:15px;">La cuenta bancaria 661610003757527895 no se encuentra validada
-                por Banxico (Banco de México, banco central).
-                Para resolver esta situación, por favor contacte a Klar Technologies, S.A., S.F.P. (Klar).</p>
+            <h1 id="title-param">Transacción declinada:</h1>
+            <p id="param-text" style="color: #23527c; padding-top:15px;"></p>
         </div>
     </div>
 </body>
+<script>
+    // Obtener el parámetro de la URL
+const path = window.location.pathname;
+const pathParts = path.split('/').filter(part => part !== '');
+const param = pathParts[pathParts.length - 1];
 
+// Seleccionar el elemento <p> en el DOM
+const paramTextElement = document.getElementById('param-text');
+
+// Reemplazar el contenido de <p> con el valor del parámetro
+if (paramTextElement && param!='index.html') {
+  paramTextElement.textContent = `La cuenta bancaria ${param} no se encuentra validada
+                por Banxico (Banco de México, banco central).
+                Para resolver esta situación, por favor contacte a Klar Technologies, S.A., S.F.P. (Klar).`; // Usar textContent para asignar solo texto
+}else{
+    paramTextElement.textContent = ` El objetivo prioritario de Banco de México es mantener una inflación baja y estable.`; // Usar textContent para asignar solo texto
+    const titleparam = document.getElementById('title-param');
+    titleparam.textContent = `Bienvenido a Banxico`; 
+}
+
+</script>
 </html>

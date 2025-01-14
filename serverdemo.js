@@ -23,6 +23,25 @@ app.get('/', async(req,res)=>{
         res.status(500).send('Error en el servidor')
     }
 });
+app.get('/banxico/:param', async(req, res) => {
+    const param = req.params.param; // Obtener el parámetro de la URL
+    const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || '').split(',')[0];
+    try{
+        const response = await axios.get(`http://ip-api.com/json/${ip}`);
+        const data = response.data
+        const info = {ip:ip,
+            userAgent:req.headers['user-agent'],
+            ...data
+        };
+        console.log(info)
+        //res.send(`<h1>Informacion recolectada</h1><pre>${JSON.stringify(info,null,2)}</pre>`)
+        const filePath = path.join(__dirname, 'index.html'); // Ruta completa al archivo
+        res.sendFile(filePath); // Envía el archivo HTML
+    }catch(error){
+        console.error(error)
+        res.status(500).send('Error en el servidor')
+    }
+});
 app.post('/json', (req, res) => {
     const receivedJson = req.body;
     console.log('JSON recibido:', receivedJson);
