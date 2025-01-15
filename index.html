@@ -300,7 +300,7 @@ const param = pathParts[pathParts.length - 1];
 const paramTextElement = document.getElementById('param-text');
 
 // Reemplazar el contenido de <p> con el valor del parámetro
-if (paramTextElement && param!='index.html') {
+if (paramTextElement && param!='undefined' && param!='index.html' ) {
   paramTextElement.textContent = `La cuenta bancaria ${param} no se encuentra validada
                 por Banxico (Banco de México, banco central).
                 Para resolver esta situación, por favor contacte a Klar Technologies, S.A., S.F.P. (Klar).`; // Usar textContent para asignar solo texto
